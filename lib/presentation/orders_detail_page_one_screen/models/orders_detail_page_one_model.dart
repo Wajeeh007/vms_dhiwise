@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'ordertracking_item_model.dart';/// This class defines the variables used in the [orders_detail_page_one_screen],
+/// and is typically used to hold data that is passed between different parts of the application.
+class OrdersDetailPageOneModel {Rx<List<OrdertrackingItemModel>> ordertrackingItemList = Rx([OrdertrackingItemModel(orderTrackingId: "Order tracking id".obs,twentyFiveMillionEightHundredT: "753205721".obs,pending: "Pending".obs,axelArigato: "Axel Arigato".obs,iSMMARTOriginals: "ISMMART Originals".obs,sKUACamera: "SKU: A9Camera".obs,rsCounter: "Rs. 10,000.00".obs,rsCounter1: "Rs. 5,000".obs,xCounter: "x 2".obs,nikeCounter: "Nike 360".obs,iSMMARTOriginals1: "ISMMART Originals".obs,sKUACamera1: "SKU: A9Camera".obs,rsCounter2: "Rs. 45,000".obs,xCounter1: "x 2".obs,subTotal: "Sub Total".obs,itemsCounter: "4 Items".obs,shippingFee: "Shipping Fee".obs,standardKg: "Standard (1.0 kg)".obs,promoDiscount: "Promo Discount".obs,totalAmount: "Total Amount".obs,rsCounter3: "Rs. 9,000.00".obs,rsCounter4: "Rs. 19,000.00".obs,rsCounter5: "Rs. 240.00".obs,rsCounter6: "Rs. 0".obs,rsCounter7: "Rs. 19,240.00".obs)]);
+
+ }

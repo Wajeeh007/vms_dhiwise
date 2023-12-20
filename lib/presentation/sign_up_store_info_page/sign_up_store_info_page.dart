@@ -1,0 +1,20 @@
+import 'controller/sign_up_store_info_controller.dart';import 'models/sign_up_store_info_model.dart';import 'package:flutter/material.dart';import 'package:vms/core/app_export.dart';import 'package:vms/widgets/custom_drop_down.dart';import 'package:vms/widgets/custom_elevated_button.dart';import 'package:vms/widgets/custom_text_form_field.dart';
+// ignore_for_file: must_be_immutable
+class SignUpStoreInfoPage extends StatelessWidget {SignUpStoreInfoPage({Key? key}) : super(key: key);
+
+SignUpStoreInfoController controller = Get.put(SignUpStoreInfoController(SignUpStoreInfoModel().obs));
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, body: SizedBox(width: mediaQueryData.size.width, child: SingleChildScrollView(child: Column(children: [SizedBox(height: 19.v), _buildStoreSlugSection()]))))); } 
+/// Section Widget
+Widget _buildInputSection() { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("msg_store_slug_non".tr, style: CustomTextStyles.titleSmallGray900_1), SizedBox(height: 8.v), CustomTextFormField(controller: controller.storeSlugController, hintText: "msg_al_jannat_shopping".tr)]); } 
+/// Section Widget
+Widget _buildStoreTypeSection() { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("lbl_store_type".tr, style: CustomTextStyles.titleSmallGray900_1), SizedBox(height: 8.v), CustomDropDown(icon: Container(margin: EdgeInsets.fromLTRB(30.h, 10.v, 16.h, 10.v), child: CustomImageView(imagePath: ImageConstant.imgArrowdownBlueGray30001, height: 16.adaptSize, width: 16.adaptSize)), hintText: "lbl_select_one".tr, items: controller.signUpStoreInfoModelObj.value.dropdownItemList!.value, onChanged: (value) {controller.onSelected(value);})]); } 
+/// Section Widget
+Widget _buildCountrySection() { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("lbl_country".tr, style: CustomTextStyles.titleSmallGray900_1), SizedBox(height: 8.v), CustomDropDown(icon: Container(margin: EdgeInsets.fromLTRB(30.h, 10.v, 16.h, 10.v), child: CustomImageView(imagePath: ImageConstant.imgArrowdownBlueGray30001, height: 16.adaptSize, width: 16.adaptSize)), hintText: "lbl_select_one".tr, items: controller.signUpStoreInfoModelObj.value.dropdownItemList1!.value, onChanged: (value) {controller.onSelected1(value);})]); } 
+/// Section Widget
+Widget _buildCitySection() { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("lbl_city".tr, style: CustomTextStyles.titleSmallGray900_1), SizedBox(height: 8.v), CustomDropDown(icon: Container(margin: EdgeInsets.fromLTRB(30.h, 10.v, 16.h, 10.v), child: CustomImageView(imagePath: ImageConstant.imgArrowdownBlueGray30001, height: 16.adaptSize, width: 16.adaptSize)), hintText: "lbl_select_one".tr, items: controller.signUpStoreInfoModelObj.value.dropdownItemList2!.value, onChanged: (value) {controller.onSelected2(value);})]); } 
+/// Section Widget
+Widget _buildStoreSlugSection() { return Padding(padding: EdgeInsets.symmetric(horizontal: 25.h), child: Column(children: [_buildInputSection(), SizedBox(height: 20.v), _buildStoreTypeSection(), SizedBox(height: 18.v), Align(alignment: Alignment.centerLeft, child: Text("lbl_address".tr, style: CustomTextStyles.titleSmallGray900_1)), SizedBox(height: 9.v), CustomTextFormField(controller: controller.addressController, hintText: "msg_shop_748_saddar".tr, textInputAction: TextInputAction.done), SizedBox(height: 19.v), _buildCountrySection(), SizedBox(height: 19.v), _buildCitySection(), SizedBox(height: 32.v), CustomElevatedButton(text: "lbl_next".tr, rightIcon: Container(margin: EdgeInsets.only(left: 8.h), child: CustomImageView(imagePath: ImageConstant.imgMaterialsymbolsarrowbackrounded, height: 20.adaptSize, width: 20.adaptSize)), buttonStyle: CustomButtonStyles.fillPrimaryTL18, buttonTextStyle: CustomTextStyles.titleSmallWhiteA700, onPressed: () {onTapNext();})])); } 
+/// Navigates to the signUpBankingInfoScreen when the action is triggered.
+onTapNext() { Get.toNamed(AppRoutes.signUpBankingInfoScreen, ); } 
+ }
